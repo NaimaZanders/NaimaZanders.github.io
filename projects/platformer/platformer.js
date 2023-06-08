@@ -31,7 +31,7 @@ $(function () {
 
     // Loop to create vertical grid lines
     // for (let i = 100; i < canvas.width; i += 100) {
-    //   createPlatform(i, 0, 1, canvas.height);
+    // createPlatform(i, 0, 1, canvas.height);
     // }
 
     // Loop to create horizontal gride lines
@@ -48,7 +48,17 @@ $(function () {
     // You must decide the x position, y position, width, and height of the platforms
     // example usage: createPlatform(x,y,width,height)
 
-
+    createPlatform (0, 200, 200, 20)
+    createPlatform (550, 355, 20, 20)
+    createPlatform (1024, 512, 256, 128)
+    createPlatform (750, 512, 100, 15)
+    createPlatform (15, 650, 175, 15)
+    createPlatform (255, 555, 76, 15)
+    createPlatform (400, 450, 20, 20)
+    createPlatform (650, 250, 150, 15)
+    createPlatform (950, 125, 200, 15)
+    createPlatform (450, 150, 20, 20)
+    createPlatform (300, 125, 10, 10)
 
     
     // TODO 2
@@ -57,7 +67,11 @@ $(function () {
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
-
+    createCollectable ("grace", 550, 315)
+    createCollectable ("diamond", 1125, 472)
+    createCollectable ("database", 449, 110)
+    createCollectable ("database", 950, 85)
+    createCollectable ("grace", 85, 350)
 
 
     // TODO 3
@@ -66,7 +80,9 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-
+    createCannon ("bottom", 400, 2500)
+    createCannon ("right", 450, 2500)
+    createCannon ("bottom", 850, 2500)
 
 
     /////////////////////////////////////////////////
