@@ -1,11 +1,14 @@
 body {
   margin: 0px;
+  background-color: lightseagreen;
 }
 
 canvas {
-  background-color: lightgray;
+  background-color: darkblue;
 }
 
 img {
   display: none;
 }
+
+
