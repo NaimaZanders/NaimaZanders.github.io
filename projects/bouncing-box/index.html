@@ -19,6 +19,7 @@
 		}
 		.board{
 			height: 100vh;
+			background-color: thistle;
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -66,6 +67,7 @@
 			var positionX = 0
 			var points = 0
 			var speed = 10
+			var colorStr;
 
 			
 			/* 
@@ -80,7 +82,7 @@
 					speed *= -1
 				}
 				if (positionX < 0) {
-					
+					speed = -speed;
 				}
 				
 
@@ -94,8 +96,12 @@
 			function handleBoxClick() {
 				positionX = 0
 				points = points + 1
-				speed = speed + 3
 				changeBoxText(points)
+				if (speed > 0) {
+					speed = speed + 3
+				} else if (speed < 0) {
+					speed = speed - 3
+				}
 
 
 			};
