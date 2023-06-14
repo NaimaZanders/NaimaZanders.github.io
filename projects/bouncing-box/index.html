@@ -8,7 +8,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: lemonchiffon;
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -19,11 +19,12 @@
 		}
 		.board{
 			height: 100vh;
-			background-color: thistle;
-		}
+			background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902030.jpg?w=1480&t=st=1686769312~exp=1686769912~hmac=8968449f45df2b6b62471c6307c584fea6c006396ed98ecac93295c3cade1d5f");
+		}	
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-
+	<!--For attribution purposes (because of the website I got it from... :P)-->
+	<!--Image by <a href="https://www.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_13223517.htm#query=purple%20clouds&position=7&from_view=keyword&track=ais">Freepik</a>-->
 </head>
 <body class="board">
 	<!-- HTML for the box -->
@@ -41,6 +42,7 @@
 			var box = jQuery('.box');	// reference to the HTML .box element
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
+			var boardHeight = jQuery(window).height(); 
 
 			// Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
@@ -49,14 +51,16 @@
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
+			function moveBoxTo(newPositionX, newPositionY) {
 				box.css("left", newPositionX);
+				box.css("top", newPositionY);
 			}
 
 			// changes the text displayed on the Box
 			function changeBoxText(newText) {
 				box.text(newText);
 			}
+			
 
 			//////////////////////////////////////////////////////////////////
 			/////////////////// YOUR CODE BELOW HERE /////////////////////////
@@ -67,7 +71,10 @@
 			var positionX = 0
 			var points = 0
 			var speed = 10
-			var colorStr;
+			var positionY = 0
+			var speedY = 10
+			
+			
 
 			
 			/* 
@@ -77,12 +84,19 @@
 			*/
 			function update() {
 				positionX = positionX + speed
-				moveBoxTo(positionX)
+				positionY = positionY + speedY
+				moveBoxTo(positionX, positionY);
 				if (positionX > boardWidth) {
 					speed *= -1
 				}
 				if (positionX < 0) {
 					speed = -speed;
+				}
+				if (positionY > boardHeight) {
+					speedY *= -1
+				}
+				if (positionY < 0) {
+					speedY = -speedY;
 				}
 				
 
@@ -95,6 +109,7 @@
 			*/
 			function handleBoxClick() {
 				positionX = 0
+				positionY = 0
 				points = points + 1
 				changeBoxText(points)
 				if (speed > 0) {
@@ -102,6 +117,12 @@
 				} else if (speed < 0) {
 					speed = speed - 3
 				}
+				if (speedY > 0) {
+					speedY = speedY + 3
+				} else if (speedY < 0) {
+					speedY = speedY - 3
+				}
+				
 
 
 			};
